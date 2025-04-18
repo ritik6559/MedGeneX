@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Sidebar from "./components/SideBar";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
@@ -10,21 +10,24 @@ import Profile from "@/pages/Profile";
 import Records from "@/pages/Records";
 import RecordDetails from "@/components/RecordDetails";
 import ScreeningSchedule from "@/pages/ScreeningSchedule";
+import Landing from "@/pages/Landing";
 
 const App = () => {
-
   const navigate = useNavigate();
+  const location = useLocation();
   const { currentUser, fetchUserByEmail } = useStateContext();
   const { user, authenticated, ready, login } = usePrivy();
 
   console.log(currentUser);
   useEffect(() => {
-    if( ready && !authenticated ){
+    if (ready && !authenticated) {
       login();
-    } else if ( user && !currentUser ){
+    } else if (user && !currentUser) {
       navigate("/onboard");
     }
-  }, [ ready, currentUser, navigate ]);
+  }, [ready, currentUser, navigate]);
+
+  const isLandingPage = location.pathname === "/";
 
   return (
     <div className="relative flex min-h-screen flex-row bg-[#13131a] p-4">
@@ -33,15 +36,17 @@ const App = () => {
         <div className="absolute bottom-1/3 right-1/4 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl animate-pulse-slow"></div>
       </div>
 
-      <div className="relative mr-10 hidden sm:flex">
-        <Sidebar />
-      </div>
+      {!isLandingPage && (
+        <div className="relative mr-10 hidden sm:flex">
+          <Sidebar />
+        </div>
+      )}
 
       <div className="relative mx-auto max-w-[1280px] flex-1 max-sm:w-full sm:pr-5">
-        <NavBar />
+        {!isLandingPage && <NavBar />}
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Landing />} />
           <Route path="/onboard" element={<OnBoarding />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/medical-records" element={<Records />} />

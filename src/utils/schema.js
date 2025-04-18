@@ -6,6 +6,7 @@ export const Users = pgTable("users", {
   age: integer("age").notNull(),
   location: varchar('location').notNull(),
   createBy: varchar('created_by').notNull(),
+
 });
 
 export const Records = pgTable("records", {
@@ -18,3 +19,5 @@ export const Records = pgTable("records", {
   kanbanRecords: varchar("kanban_records").notNull(),
   createdBy: varchar("created_by").notNull(),
 });
+
+
