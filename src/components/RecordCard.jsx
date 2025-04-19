@@ -5,8 +5,8 @@ const RecordCard = ({ record, onNavigate }) => {
   return (
     <div className="flex flex-col rounded-xl border bg-white shadow-sm dark:border-neutral-800 dark:bg-[#13131a]">
       <div className="flex justify-between gap-x-3 p-4 md:p-5">
-        <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full text-white dark:text-blue-200">
-          <IconFolder size={70} className="text-green-500" />
+        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 text-white group-hover:scale-110 transition-transform duration-300">
+          <IconFolder size={24} className="text-blue-400 group-hover:text-blue-300 transition-colors" />
         </div>
       </div>
 

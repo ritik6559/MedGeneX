@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   IconAlertCircle,
   IconCircleDashedCheck,
@@ -8,8 +9,9 @@ import {
   IconUserScan,
 } from "@tabler/icons-react";
 import { usePrivy } from "@privy-io/react-auth";
-import MetricsCard from "./MetricsCard"; // Adjust the import path
-import { useStateContext } from "../context"; // Ensure correct import path
+import MetricsCard from "./MetricsCard";
+import { useStateContext } from "@/context";
+import { staggerChildren } from "@/utils/animations";
 
 const DisplayInfo = () => {
   const navigate = useNavigate();
@@ -130,19 +132,48 @@ const DisplayInfo = () => {
   ];
 
   return (
-    <div className="flex flex-wrap gap-[26px]">
-      <div className="mt-7 grid w-full gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-2">
-        {metricsData.slice(0, 2).map((metric) => (
-          <MetricsCard key={metric.title} {...metric} />
-        ))}
+    <motion.div
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={staggerChildren}
+      className="p-6 space-y-8"
+    >
+      <div className="space-y-2">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-3xl font-bold text-white"
+        >
+          Dashboard Overview
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-gray-400"
+        >
+          Track your medical appointments and screenings
+        </motion.p>
       </div>
 
-      <div className="mt-[9px] grid w-full gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
-        {metricsData.slice(2).map((metric) => (
-          <MetricsCard key={metric.title} {...metric} />
-        ))}
-      </div>
-    </div>
+      <motion.div
+        variants={staggerChildren}
+        className="grid gap-6"
+      >
+        <motion.div className="grid w-full gap-4 sm:grid-cols-2">
+          {metricsData.slice(0, 2).map((metric) => (
+            <MetricsCard key={metric.title} {...metric} />
+          ))}
+        </motion.div>
+
+        <motion.div className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {metricsData.slice(2).map((metric) => (
+            <MetricsCard key={metric.title} {...metric} />
+          ))}
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

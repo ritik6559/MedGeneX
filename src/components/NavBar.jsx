@@ -37,7 +37,7 @@ const NavBar = () => {
           placeholder="Search for records"
           className="flex w-full bg-transparent p-1 font-epilogue text-[14px] font-normal text-white outline-none placeholder:text-[#4b5264]"
         />
-        <div className="flex h-full w-[72px] p-2 cursor-pointer items-center justify-center rounded-[20px] bg-[#4acd8d]">
+        <div className="flex h-full w-[72px] p-2 cursor-pointer items-center justify-center rounded-[20px] bg-gradient-to-br from-blue-600/20 to-purple-600/20">
           <img
             src={search}
             alt="search"
@@ -50,7 +50,7 @@ const NavBar = () => {
         <CustomButton
           btnType="button"
           title={authenticated ? "Log Out" : "Log In"}
-          styles={authenticated ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
+          styles={authenticated ? "bg-gradient-to-br from-blue-600/20 to-purple-600/20" : "bg-gradient-to-br from-blue-600/20 to-purple-600/20"}
           handleClick={handleLoginLogout}
         />
       </div>

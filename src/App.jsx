@@ -11,6 +11,9 @@ import Records from "@/pages/Records";
 import RecordDetails from "@/components/RecordDetails";
 import ScreeningSchedule from "@/pages/ScreeningSchedule";
 import Landing from "@/pages/Landing";
+import PatientForm from "@/pages/PatientForm";
+import Contact from "@/pages/Contact";
+
 
 const App = () => {
   const navigate = useNavigate();
@@ -47,11 +50,14 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/dashboard" element={<Home />} />
           <Route path="/onboard" element={<OnBoarding />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/medical-records" element={<Records />} />
           <Route path="/medical-records/:id" element={<RecordDetails />} />
           <Route path="/screening-schedules" element={<ScreeningSchedule />} />
+          <Route path="/patient-form" element={<PatientForm />} />
         </Routes>
       </div>
     </div>

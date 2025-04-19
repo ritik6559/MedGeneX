@@ -3,21 +3,12 @@ import { useStateContext } from "@/context";
 import { usePrivy } from "@privy-io/react-auth";
 import ProfileField from "@/components/ProfileField";
 
-// Mock user data for demonstration
-const mockUser = {
-  username: "JaneDoe",
-  createdBy: "jane.doe@example.com",
-  age: 28,
-  location: "San Francisco, CA",
-};
-
 const Profile = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [loading, setLoading] = useState(true);
   const { currentUser, fetchUserByEmail } = useStateContext();
   const { user } = usePrivy();
 
-  // Simulate data loading
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!currentUser) {
