@@ -1,7 +1,7 @@
 "use server"
 
 import {APPOINTMENT_COLLECTION_ID, DATABASE_ID, databases} from "@/lib/appwrite.config";
-import {ID} from "node-appwrite";
+import {ID, Query} from "node-appwrite";
 import {formatDateTime, parseStringify} from "@/lib/utils";
 import {revalidatePath} from "next/cache";
 
@@ -47,3 +47,17 @@ export const updateAppointment = async ({
         console.error("An error occurred while scheduling an appointment:", error);
     }
 };
+
+export const getAppointment = async (id: string) => {
+    try{
+        const appointment = await databases.getDocument(
+            DATABASE_ID!,
+            APPOINTMENT_COLLECTION_ID!,
+            id
+        );
+
+        return parseStringify(appointment);
+    } catch(error) {
+
+    }
+}
