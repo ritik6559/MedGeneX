@@ -4,6 +4,7 @@ import "./globals.css";
 import {cn} from "@/lib/utils";
 import {ThemeProvider} from "next-themes";
 import React from "react";
+import {Toaster} from "@/components/ui/sonner";
 
 const fontSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="dark"
         >
+          <Toaster closeButton />
           {children}
         </ThemeProvider>
       </body>

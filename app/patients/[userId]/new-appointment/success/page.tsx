@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Doctors } from "@/constants";
 import { getAppointment } from "@/lib/actions/appointment.actions";
 import { formatDateTime } from "@/lib/utils";
+import React from "react";
 
 const RequestSuccess = async ({
                                   searchParams,
@@ -20,14 +21,17 @@ const RequestSuccess = async ({
     return (
         <div className=" flex h-screen max-h-screen px-[5%]">
             <div className="success-img">
-                <Link href="/">
-                    <Image
-                        src="/assets/icons/logo-full.svg"
-                        height={1000}
-                        width={1000}
-                        alt="logo"
-                        className="h-10 w-fit"
-                    />
+                <Link href="/" className={"cursor-pointer"}>
+                    <div className="flex gap-3 items-center mb-12">
+                        <Image
+                            src="/assets/icons/logo-icon.svg"
+                            alt="logo"
+                            height={1000}
+                            width={1000}
+                            className="h-15 w-20"
+                        />
+                        <h1 className="font-bold text-white text-36-bold">MedGeneX</h1>
+                    </div>
                 </Link>
 
                 <section className="flex flex-col items-center">

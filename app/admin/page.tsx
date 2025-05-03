@@ -14,13 +14,16 @@ const Admin = async () => {
         <div className={"mx-auto flex max-w-7xl flex-col space-y-14"} >
             <header className={"admin-header"} >
                 <Link href={"/"} className={"cursor-pointer"} >
-                    <Image
-                        src={"/assets/icons/logo-full.svg"}
-                        alt={"logo"}
-                        height={32}
-                        width={162}
-                        className={"h-8 w-fit "}
-                    />
+                    <div className="flex gap-3 items-center mb-12">
+                        <Image
+                            src="/assets/icons/logo-icon.svg"
+                            alt="logo"
+                            height={1000}
+                            width={1000}
+                            className="h-15 w-20"
+                        />
+                        <h1 className="font-bold text-white text-36-bold">MedGeneX</h1>
+                    </div>
                 </Link>
 
                 <p

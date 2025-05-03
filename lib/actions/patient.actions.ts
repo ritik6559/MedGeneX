@@ -25,9 +25,11 @@ export const createUser = async (user: CreateUserParams) => {
 
          console.log(newUser);
 
+         return newUser;
+
 
      } catch (error) {
-         console.log(error);
+         toast
          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
          // @ts-expect-error
          if( error && error?.code == 409 ) { // existing user

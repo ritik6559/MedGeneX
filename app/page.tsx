@@ -15,13 +15,17 @@ const Home = ({ searchParams }: SearchParamProps) => {
             { isAdmin && <PasskeyModal /> }
           <section className={"remove-scrollbar container my-auto"}>
             <div className={"sub-container max-w-[496px]"} >
-                <Image
-                    src={"/assets/icons/logo-full.svg"}
-                    alt={"logo"}
-                    height={1000}
-                    width={1000}
-                    className={"mb-12 h-10 w-fit"}
-                />
+                <div className="flex gap-3 items-center mb-12">
+                    <Image
+                        src="/assets/icons/logo-icon.svg"
+                        alt="logo"
+                        height={1000}
+                        width={1000}
+                        className="h-15 w-20"
+                    />
+                    <h1 className="font-bold text-white text-36-bold">MedGeneX</h1>
+                </div>
+
                 <PatientForm />
 
                 <div className={"text-14-regular mt-20 flex justify-between"} >
